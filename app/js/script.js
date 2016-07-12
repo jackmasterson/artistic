@@ -63,7 +63,7 @@ var showPaintings = {
 			
 			$(that.jClass).animate({
 				opacity: 1
-			});
+			}, 'fast');
 			$(that.jClass).show();
 		})
 		
