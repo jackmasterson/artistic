@@ -1,4 +1,19 @@
 var model = {
+	
+	nav: [
+		{
+			header: "About Me"
+		},
+		{
+			header: "Search Paintings"
+		},
+		{
+			header: "Filter"
+		},
+		{
+			header: "Pricing"
+		}
+	],
 
 	paintings: [
 		{
