@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title>Jack's Art</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<!--build:css css/style.min.css-->
+	<link rel="stylesheet" href="css/style.css">
+	<!--endbuild-->
+</head>
+<body>
+	<div data-bind="foreach: model.paintings">
+		<div class="shader" data-bind="event: { mouseover: showPaintings.init }">
+			<h3 data-bind="attr: {class: headClass}, css:{shaderHeader: classed}, text: name"></h3>
+			<img data-bind="attr: {src: src, class: classed}, css: {mainImg: classed}, event: {mouseover: showPaintings.nameShow, mouseout: showPaintings.nameHide}">
+		</div>
+	</div>
+
+<!--build:js js/script.min.js -->
+<script src="js/lib/knockout-latest.js"></script>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<!--endbuild-->
+
+</body>
+</html>
