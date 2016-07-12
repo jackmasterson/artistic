@@ -9,10 +9,13 @@
 	<!--endbuild-->
 </head>
 <body>
-	<div data-bind="foreach: model.paintings">
-		<div class="shader" data-bind="event: { mouseover: showPaintings.init }">
-			<h3 data-bind="attr: {class: headClass}, css:{shaderHeader: classed}, text: name"></h3>
-			<img data-bind="attr: {src: src, class: classed}, css: {mainImg: classed}, event: {mouseover: showPaintings.nameShow, mouseout: showPaintings.nameHide}">
+	<div class="splash darken">
+		<h1 class="dark-again">Jack Masterson Paintings</h1>
+		<div class="darken" data-bind="foreach: model.paintings">
+			<div class="shader" data-bind="event: { mouseover: showPaintings.init }">
+				<h3 data-bind="attr: {class: headClass}, css:{shaderHeader: classed}, text: name"></h3>
+				<img data-bind="attr: {src: src, class: classed}, css: {mainImg: classed}, event: {mouseover: showPaintings.nameShow, mouseout: showPaintings.nameHide}">
+			</div>
 		</div>
 	</div>
 
