@@ -1,8 +1,7 @@
 var model = {
-	
 	nav: [
 		{
-			header: "About Me"
+			header: "About Jack"
 		},
 		{
 			header: "Search Paintings"
@@ -23,7 +22,9 @@ var model = {
 			headClass: "self-head",
 			height: "300",
 			width: "300",
-			unit: "px"
+			unit: "px",
+			tags: ["self", "portrait", "me", "woman", "road", "home", "house", 
+				"sky"]
 		},
 		{
 			name: "Friendship",
@@ -32,7 +33,8 @@ var model = {
 			headClass: "friendship-head",
 			height: "300",
 			width: "300",
-			unit: "px"
+			unit: "px",
+			tags: ["friend", "friends", "tree", "forest", "hug"]
 		},		
 		{
 			name: "Field",
@@ -41,7 +43,8 @@ var model = {
 			headClass: "field-head",
 			height: "300",
 			width: "300",
-			unit: "px"
+			unit: "px",
+			tags: ["field", "colorful", "trees", "scenic", "landscape"]
 		},		{
 			name: "Ship",
 			src: "img/ship.jpg",
@@ -49,7 +52,8 @@ var model = {
 			headClass: "ship-head",
 			height: "300",
 			width: "300",
-			unit: "px"
+			unit: "px",
+			tags: ["ship", "sunset", "clouds", "sky"]
 		},		{
 			name: "Flowers",
 			src: "img/flowers.jpg",
@@ -57,7 +61,8 @@ var model = {
 			headClass: "flowers-head",
 			height: "300",
 			width: "300",
-			unit: "px"
+			unit: "px",
+			tags: ["flowers", "plant", "home", "pot"]
 		},		{
 			name: "Stretch",
 			src: "img/stretch.jpg",
@@ -65,30 +70,27 @@ var model = {
 			headClass: "stretch-head",
 			height: "150",
 			width: "300",
-			unit: "px"
+			unit: "px",
+			tags: ["stretch", "town", "people", "crowd"]
 		}
 	]
 };
 
-//for width of pictures/shades, do it as a vw of the number of paintings that
-//there are total; make it an array, then do array.length/x;
+viewModel = {
 
-//ORRRRR do it by dimensions; assign a height and length to each item in the
-//model when you give it a class/name/etc, and divide it by that
-var viewModel = {
-
-	init: function() {
-		size.init();
-	}
-
+	query: ko.observable("")
 };
 
-var size = {
+var filter = {
 
 	init: function() {
-
+		console.log(viewModel.query());
 	}
-};
+}
+
+
+
+
 
 var showPaintings = {
 
@@ -119,4 +121,4 @@ var showPaintings = {
 
 }
 
-ko.applyBindings(viewModel.init());
+ko.applyBindings(viewModel);

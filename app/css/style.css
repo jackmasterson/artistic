@@ -40,7 +40,7 @@ body {
   display: none; }
 
 .shaderHeader {
-  margin-top: 20vh;
+  padding-top: 20%;
   font-size: 35px; }
 
 .darken {
