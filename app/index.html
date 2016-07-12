@@ -17,9 +17,9 @@
 			</a>
 		</div>
 		<div class="darken" data-bind="foreach: model.paintings">
-			<div class="shader" data-bind="event: { mouseover: showPaintings.init }">
+			<div class="shader" data-bind="style: {height: height + unit, width: width + unit}, event: { mouseover: showPaintings.init }">
 				<h3 data-bind="attr: {class: headClass}, css:{shaderHeader: classed}, text: name"></h3>
-				<img data-bind="attr: {src: src, class: classed}, css: {mainImg: classed}, event: {mouseover: showPaintings.nameShow, mouseout: showPaintings.nameHide}">
+				<img data-bind="attr: {src: src, class: classed}, css: {mainImg: classed}, event: {mouseover: showPaintings.nameShow, mouseout: showPaintings.nameHide}, style: {height: height - 20 + unit, width: width - 20 + unit}">
 			</div>
 		</div>
 	</div>

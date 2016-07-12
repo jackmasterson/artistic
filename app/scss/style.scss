@@ -22,7 +22,7 @@ body {
 .splash {
 	background: url(..//img/paint-brush.jpg);
 	background-size: cover;
-	height: 100vh;
+	height: 200vh;
 	width: 100vw;
 	margin: 0;
 	padding: 0;
@@ -35,7 +35,6 @@ body {
 	padding: 10px;
 	display: inline-block;
 	margin: 15px;
-	margin-bottom: 20vh;
 	margin-top: 0;
 }
 
@@ -55,10 +54,8 @@ body {
 .darken {
 	background-color: rgba(0,0,0,0.5);
 	padding-top: 2vh;
-	height: 100vh;
+	height: 200vh;
 	width: 100vw;
-	position: fixed;
-	overflow-y: scroll;
 }
 
 .dark-again {

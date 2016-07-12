@@ -20,34 +20,52 @@ var model = {
 			name: "Self",
 			src: "img/self.jpg",
 			classed: "self-portrait",
-			headClass: "self-head"
+			headClass: "self-head",
+			height: "300",
+			width: "300",
+			unit: "px"
 		},
 		{
 			name: "Friendship",
 			src: "img/friendship.jpg",
 			classed: "friendship-portrait",
-			headClass: "friendship-head"
+			headClass: "friendship-head",
+			height: "300",
+			width: "300",
+			unit: "px"
 		},		
 		{
 			name: "Field",
 			src: "img/field.jpg",
 			classed: "field-portrait",
-			headClass: "field-head"
+			headClass: "field-head",
+			height: "300",
+			width: "300",
+			unit: "px"
 		},		{
 			name: "Ship",
 			src: "img/ship.jpg",
 			classed: "ship-portrait",
-			headClass: "ship-head"
+			headClass: "ship-head",
+			height: "300",
+			width: "300",
+			unit: "px"
 		},		{
 			name: "Flowers",
 			src: "img/flowers.jpg",
 			classed: "flowers-portrait",
-			headClass: "flowers-head"
+			headClass: "flowers-head",
+			height: "300",
+			width: "300",
+			unit: "px"
 		},		{
 			name: "Stretch",
 			src: "img/stretch.jpg",
 			classed: "stretch-portrait",
-			headClass: "stretch-head"
+			headClass: "stretch-head",
+			height: "150",
+			width: "300",
+			unit: "px"
 		}
 	]
 };
@@ -60,9 +78,16 @@ var model = {
 var viewModel = {
 
 	init: function() {
-
+		size.init();
 	}
 
+};
+
+var size = {
+
+	init: function() {
+
+	}
 };
 
 var showPaintings = {
