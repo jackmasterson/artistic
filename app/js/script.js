@@ -35,7 +35,7 @@ var model = {
 			height: "300",
 			width: "300",
 			unit: "px",
-			tags: ["friend", "friends", "tree", "forest", "hug"],
+			tags: ["friend", "friends", "tree", "forest", "hug", "love"],
 			visibility: ko.observable(true)
 		},		
 		{

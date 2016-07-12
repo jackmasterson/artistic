@@ -22,6 +22,19 @@
 				<div class="shader" data-bind="style: {height: height + unit, width: width + unit}, event: { mouseover: showPaintings.init }">
 					<h3 data-bind="attr: {class: headClass}, css:{shaderHeader: classed}, text: name"></h3>
 					<img data-bind="attr: {src: src, class: classed}, css: {mainImg: classed}, event: {mouseover: showPaintings.nameShow, mouseout: showPaintings.nameHide}, style: {height: height - 20 + unit, width: width - 20 + unit}">
+					<ul class="tags-ul">
+						<li><strong>Tags</strong></li>
+						<li class="tags-li" data-bind="text: tags[0]"></li>
+						<li class="tags-li" data-bind="text: tags[1]"></li>
+						<li class="tags-li" data-bind="text: tags[2]"></li>
+						<li class="tags-li" data-bind="text: tags[3]"></li>
+						<li class="tags-li" data-bind="text: tags[4]"></li>
+						<span data-bind="visible: tags.length>4">
+							<li class="tags-li" data-bind="text: tags[5]"></li>
+							<li class="tags-li" data-bind="text: tags[6]"></li>
+							<li class="tags-li" data-bind="text: tags[7]"></li>
+						</span>
+					</ul>
 				</div>
 			</div>
 		</div>
