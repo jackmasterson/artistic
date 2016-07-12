@@ -16,7 +16,7 @@
 				<h2 class="nav-header" data-bind="text: header"></h2>
 			</a>
 		</div>
-		<input data-bind="textInput: query, event: {'keyup': filter.init}" class="search" />
+		<input data-bind="textInput: query, event: {'keyup': filter}" class="search" />
 		<div class="darken" data-bind="foreach: model.paintings">
 
 			<div class="shader" data-bind="style: {height: height + unit, width: width + unit}, event: { mouseover: showPaintings.init }">

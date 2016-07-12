@@ -78,15 +78,14 @@ var model = {
 
 viewModel = {
 
-	query: ko.observable("")
+	query: ko.observable(""),
+	
+	filter: function() {
+		console.log(this.query());
+	}
 };
 
-var filter = {
 
-	init: function() {
-		console.log(viewModel.query());
-	}
-}
 
 
 
