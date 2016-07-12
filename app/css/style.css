@@ -66,3 +66,8 @@ body {
 .nav-header {
   display: inline;
   padding: 5vw; }
+
+.visibility-div {
+  margin: 0;
+  padding: 0;
+  display: inline; }

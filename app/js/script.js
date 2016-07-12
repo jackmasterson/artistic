@@ -24,7 +24,8 @@ var model = {
 			width: "300",
 			unit: "px",
 			tags: ["self", "portrait", "me", "woman", "road", "home", "house", 
-				"sky"]
+				"sky"],
+			visibility: ko.observable(true)
 		},
 		{
 			name: "Friendship",
@@ -34,7 +35,8 @@ var model = {
 			height: "300",
 			width: "300",
 			unit: "px",
-			tags: ["friend", "friends", "tree", "forest", "hug"]
+			tags: ["friend", "friends", "tree", "forest", "hug"],
+			visibility: ko.observable(true)
 		},		
 		{
 			name: "Field",
@@ -44,7 +46,8 @@ var model = {
 			height: "300",
 			width: "300",
 			unit: "px",
-			tags: ["field", "colorful", "trees", "scenic", "landscape"]
+			tags: ["field", "colorful", "trees", "scenic", "landscape"],
+			visibility: ko.observable(true)
 		},		{
 			name: "Ship",
 			src: "img/ship.jpg",
@@ -53,7 +56,8 @@ var model = {
 			height: "300",
 			width: "300",
 			unit: "px",
-			tags: ["ship", "sunset", "clouds", "sky"]
+			tags: ["ship", "sunset", "clouds", "sky"],
+			visibility: ko.observable(true)
 		},		{
 			name: "Flowers",
 			src: "img/flowers.jpg",
@@ -62,7 +66,8 @@ var model = {
 			height: "300",
 			width: "300",
 			unit: "px",
-			tags: ["flowers", "plant", "home", "pot"]
+			tags: ["flowers", "plant", "home", "pot"],
+			visibility: ko.observable(true)
 		},		{
 			name: "Stretch",
 			src: "img/stretch.jpg",
@@ -71,7 +76,8 @@ var model = {
 			height: "150",
 			width: "300",
 			unit: "px",
-			tags: ["stretch", "town", "people", "crowd"]
+			tags: ["stretch", "town", "people", "crowd"],
+			visibility: ko.observable(true)
 		}
 	]
 };
@@ -79,9 +85,31 @@ var model = {
 viewModel = {
 
 	query: ko.observable(""),
-	
+
 	filter: function() {
-		console.log(this.query());
+		var query = this.query();
+
+		model.paintings.forEach(function(obj){
+			var index;
+			var tag = obj.tags;
+			var domObj = ko.observable(document.getElementsByClassName(obj.classed));
+		//	console.log(domObj());
+			
+			tag.forEach(function(tags){
+				
+				index = tags.indexOf(query);
+				
+				if(index > -1){
+					
+					obj.visibility(true);
+
+				}
+				else {
+					obj.visibility(false);
+				}
+				console.log(obj.visibility());
+			})
+		})
 	}
 };
 
