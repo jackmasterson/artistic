@@ -1,16 +1,20 @@
 var model = {
 	nav: [
 		{
-			header: "About Jack"
+			header: "About Jack",
+			classed: "about-nav"
+		}/*,
+		{
+			header: "Search Paintings",
+			classed: "search-nav"
+		}*/,
+		{
+			header: "Filter",
+			classed: "filter-nav"
 		},
 		{
-			header: "Search Paintings"
-		},
-		{
-			header: "Filter"
-		},
-		{
-			header: "Pricing"
+			header: "Pricing",
+			classed: "pricing-nav"
 		}
 	],
 
@@ -25,6 +29,25 @@ var model = {
 			unit: "px",
 			tags: ["self", "portrait", "me", "woman", "road", "home", "house", 
 				"sky"],
+			tagsFirst: function() {
+				this.tagsArr = ko.observableArray();
+				for(var i=0; i<4; i++){
+
+					this.tagsArr.push(this.tags[i]);
+				}
+				return this.tagsArr();
+			},
+			tagsSecond: function() {
+				this.tagsArrSecond = ko.observableArray();
+
+				for(var t=0; t<this.tags.length; t++){
+					if(t>4){
+						this.tagsArrSecond.push(this.tags[t]);
+					}
+				}
+
+				return this.tagsArrSecond();
+			},
 			visibility: ko.observable(true)
 		},
 		{
@@ -36,6 +59,25 @@ var model = {
 			width: "300",
 			unit: "px",
 			tags: ["friends", "tree", "forest", "hug", "love"],
+			tagsFirst: function() {
+				this.tagsArr = ko.observableArray();
+				for(var i=0; i<4; i++){
+
+					this.tagsArr.push(this.tags[i]);
+				}
+				return this.tagsArr();
+			},
+			tagsSecond: function() {
+				this.tagsArrSecond = ko.observableArray();
+
+				for(var t=0; t<this.tags.length; t++){
+					if(t>4){
+						this.tagsArrSecond.push(this.tags[t]);
+					}
+				}
+
+				return this.tagsArrSecond();
+			},
 			visibility: ko.observable(true)
 		},		
 		{
@@ -47,8 +89,28 @@ var model = {
 			width: "300",
 			unit: "px",
 			tags: ["field", "colorful", "trees", "scenic", "landscape"],
+			tagsFirst: function() {
+				this.tagsArr = ko.observableArray();
+				for(var i=0; i<4; i++){
+
+					this.tagsArr.push(this.tags[i]);
+				}
+				return this.tagsArr();
+			},
+			tagsSecond: function() {
+				this.tagsArrSecond = ko.observableArray();
+
+				for(var t=0; t<this.tags.length; t++){
+					if(t>4){
+						this.tagsArrSecond.push(this.tags[t]);
+					}
+				}
+
+				return this.tagsArrSecond();
+			},
 			visibility: ko.observable(true)
-		},		{
+		},	
+		{
 			name: "Ship",
 			src: "img/ship.jpg",
 			classed: "ship-portrait",
@@ -57,18 +119,28 @@ var model = {
 			width: "300",
 			unit: "px",
 			tags: ["ship", "sunset", "clouds", "sky"],
+			tagsFirst: function() {
+				this.tagsArr = ko.observableArray();
+				for(var i=0; i<4; i++){
+
+					this.tagsArr.push(this.tags[i]);
+				}
+				return this.tagsArr();
+			},
+			tagsSecond: function() {
+				this.tagsArrSecond = ko.observableArray();
+
+				for(var t=0; t<this.tags.length; t++){
+					if(t>4){
+						this.tagsArrSecond.push(this.tags[t]);
+					}
+				}
+
+				return this.tagsArrSecond();
+			},
 			visibility: ko.observable(true)
-		},		{
-			name: "Flowers",
-			src: "img/flowers.jpg",
-			classed: "flowers-portrait",
-			headClass: "flowers-head",
-			height: "300",
-			width: "300",
-			unit: "px",
-			tags: ["flowers", "plant", "home", "pot"],
-			visibility: ko.observable(true)
-		},		{
+		},			
+		{
 			name: "Stretch",
 			src: "img/stretch.jpg",
 			classed: "stretch-portrait",
@@ -77,6 +149,55 @@ var model = {
 			width: "300",
 			unit: "px",
 			tags: ["stretch", "town", "people", "crowd"],
+			tagsFirst: function() {
+				this.tagsArr = ko.observableArray();
+				for(var i=0; i<4; i++){
+
+					this.tagsArr.push(this.tags[i]);
+				}
+				return this.tagsArr();
+			},
+			tagsSecond: function() {
+				this.tagsArrSecond = ko.observableArray();
+
+				for(var t=0; t<this.tags.length; t++){
+					if(t>4){
+						this.tagsArrSecond.push(this.tags[t]);
+					}
+				}
+
+				return this.tagsArrSecond();
+			},
+			visibility: ko.observable(true)
+		},		
+		{
+			name: "Flowers",
+			src: "img/flowers.jpg",
+			classed: "flowers-portrait",
+			headClass: "flowers-head",
+			height: "300",
+			width: "300",
+			unit: "px",
+			tags: ["flowers", "plant", "home", "pot"],
+			tagsFirst: function() {
+				this.tagsArr = ko.observableArray();
+				for(var i=0; i<4; i++){
+
+					this.tagsArr.push(this.tags[i]);
+				}
+				return this.tagsArr();
+			},
+			tagsSecond: function() {
+				this.tagsArrSecond = ko.observableArray();
+
+				for(var t=0; t<this.tags.length; t++){
+					if(t>4){
+						this.tagsArrSecond.push(this.tags[t]);
+					}
+				}
+
+				return this.tagsArrSecond();
+			},
 			visibility: ko.observable(true)
 		}
 	]
@@ -109,8 +230,6 @@ viewModel = {
 
 			that.obj.push(obj);
 			var tag = obj.tags;
-		// works for whole word
-		//	console.log(tag.contains(query));
 
 			tag.forEach(function(tags){
 				
@@ -136,15 +255,7 @@ viewModel = {
 
 	filterView: function() {
 		var that = this;
-	//	console.log(this.show(), 'show');
-	//	console.log(this.hide(), 'hide');
-	//	console.log(that.obj());
 		this.obj().forEach(function(obj){
-	//		console.log(show);
-	//		console.log(that.obj().contains(show));
-			//console.log(that.obj().contains(show));
-		//	console.log(show);
-		//	console.log(that.obj().contains(show));
 			if(that.show().contains(obj)){
 				console.log(obj);
 				obj.visibility(true);
@@ -152,15 +263,28 @@ viewModel = {
 			else {
 				obj.visibility(false);
 			}
-	//		console.log(that.obj().contains(show));
 		})
 	}
 
 };
 
+var description = {
 
+	init: function() {
+		console.log('describe me!');
+	}
+}
 
+var nav = {
 
+	init: function() {
+		console.log(this);
+		var filter = document.getElementsByClassName('search')[0];
+		if(this.header === "Filter"){
+			$(filter).slideDown();
+		}
+	}
+}
 
 
 
