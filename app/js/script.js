@@ -35,7 +35,7 @@ var model = {
 			height: "300",
 			width: "300",
 			unit: "px",
-			tags: ["friend", "friends", "tree", "forest", "hug", "love"],
+			tags: ["friends", "tree", "forest", "hug", "love"],
 			visibility: ko.observable(true)
 		},		
 		{
@@ -85,32 +85,77 @@ var model = {
 viewModel = {
 
 	query: ko.observable(""),
+	closureShow: ko.observableArray(),
+	closureHide: ko.observableArray(),
 
 	filter: function() {
+        
+        Array.prototype.contains = function(searched) {
+            for (var r in this) {
+                if (this[r] == searched) return true;
+            }
+            return false;
+        };
+
+
+		var that = this;
+
 		var query = this.query();
+		that.show = ko.observableArray();
+		that.hide = ko.observableArray();
+		that.obj = ko.observableArray();
 
 		model.paintings.forEach(function(obj){
-			var index;
+
+			that.obj.push(obj);
 			var tag = obj.tags;
-			var domObj = ko.observable(document.getElementsByClassName(obj.classed));
-		//	console.log(domObj());
-			
+		// works for whole word
+		//	console.log(tag.contains(query));
+
 			tag.forEach(function(tags){
 				
-				index = tags.indexOf(query);
-				
+				var index = tags.indexOf(query);
+
 				if(index > -1){
 					
-					obj.visibility(true);
+			
+					that.show.push(obj);
 
 				}
 				else {
-					obj.visibility(false);
+					that.hide.push(obj);		
 				}
-				console.log(obj.visibility());
+				
 			})
+		});
+		that.filterView();
+		that.obj.removeAll();
+		that.show.removeAll();
+
+	},
+
+	filterView: function() {
+		var that = this;
+	//	console.log(this.show(), 'show');
+	//	console.log(this.hide(), 'hide');
+	//	console.log(that.obj());
+		this.obj().forEach(function(obj){
+	//		console.log(show);
+	//		console.log(that.obj().contains(show));
+			//console.log(that.obj().contains(show));
+		//	console.log(show);
+		//	console.log(that.obj().contains(show));
+			if(that.show().contains(obj)){
+				console.log(obj);
+				obj.visibility(true);
+			}
+			else {
+				obj.visibility(false);
+			}
+	//		console.log(that.obj().contains(show));
 		})
 	}
+
 };
 
 
